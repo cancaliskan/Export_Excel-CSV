@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div><b>List</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>First Name </th>
+        <th>Last Name </th>
+        <th>Date of Birth</th>
+        <th>Email</th>
+
+    </tr>
+    @foreach (var client in ViewBag.ClientList)
+    {
+        <tr>
+            <td>@client.FirstName</td>
+            <td>@client.LastName</td>
+            <td>@client.DOB</td>
+            <td>@client.Email</td>
+        </tr>
+    }
+</table>
+
+<input type="button" value="Download CSV Format" onclick="location.href='@Url.Action("exportToCSV", "Home")'" />
+<br />
+<input type="button" value="Download Excel Format" onclick="location.href='@Url.Action("exportToExcel", "Home")'" />
